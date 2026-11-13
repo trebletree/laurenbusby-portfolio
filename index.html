@@ -235,8 +235,8 @@ h1 .row:last-child{color:var(--gold)}
 .items span{display:block;margin-top:.25rem;font-size:.8rem;line-height:1.45;color:rgb(243 239 255/.8)}
 
 /* ── Summit ───────────────────────────────────────────────────────── */
-.summit{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:110px;padding-bottom:16vh}
-.pole{position:relative;width:8px;height:96px;background:var(--snow);margin-bottom:1.2rem}
+.summit{min-height:100svh;display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:110px;padding-bottom:0}
+.pole{position:relative;width:8px;height:96px;background:var(--snow);margin:auto 0 1.2rem}
 .pole:after{content:"";position:absolute;left:8px;top:4px;width:56px;height:36px;background:var(--glow);clip-path:polygon(0 0,100% 0,100% 22%,86% 22%,86% 44%,100% 44%,100% 66%,86% 66%,86% 100%,0 100%)}
 .motion .pole:after{animation:wave .7s steps(1) infinite}
 @keyframes wave{50%{clip-path:polygon(0 0,100% 0,100% 100%,86% 100%,86% 78%,100% 78%,100% 56%,86% 56%,86% 34%,0 34%,0 100%,0 0)}}
@@ -246,11 +246,15 @@ h1 .row:last-child{color:var(--gold)}
 .summit .choices{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2rem}
 .summit .btn.ghost{color:var(--night);border-color:var(--night)}
 .summit .btn.ghost:hover{background:var(--night);color:var(--snow)}
-.summit .credits{margin-top:3rem;font-size:.85rem;color:var(--night);display:flex;gap:2rem;flex-wrap:wrap;justify-content:center}
+/* Footer: a dark strip along the bottom of the page, the HUD's counterpart. It runs the full
+   width of the screen from inside the centered column. */
+.summit .choices{margin-bottom:4.5rem}
+.summit .credits{margin-top:auto;width:100%;padding:1.1rem 0;background:var(--night);box-shadow:0 0 0 100vmax var(--night);clip-path:inset(0 -100vmax);font-size:1.05rem;color:var(--snow);display:flex;gap:.3rem 2.2rem;flex-wrap:wrap;justify-content:center}
+@media(min-width:901px){.summit .credits{justify-content:flex-start;padding-right:clamp(0px,calc(290px - (100vw - 1120px)/2),290px)}}   /* text stays clear of the trail map */
 
 @media(max-width:900px){
   .map{display:none}
-  .hud .me span,.hud .go{display:none}
+  .hud .go{display:none}
   .hud{font-size:.72rem;height:46px;gap:.8rem}
   .guide{grid-template-columns:1fr}
   .guide .who{border-right:0;border-bottom:var(--px) solid var(--snow);display:grid;grid-template-columns:120px 1fr;gap:1rem;align-items:start}
@@ -265,6 +269,7 @@ h1 .row:last-child{color:var(--gold)}
 }
 @media(max-width:620px){.motto{flex-direction:column;text-align:center}.motto .kicker{justify-content:center}}
 @media(max-width:520px){.hud .where{display:none}.hud .me{margin-right:auto}}
+@media(max-width:350px){.hud{gap:.5rem;padding:0 .6rem;font-size:.62rem}}   /* smallest phones */
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -275,7 +280,7 @@ h1 .row:last-child{color:var(--gold)}
 <div class="scan" aria-hidden="true"></div>
 
 <div class="hud pix">
-  <a class="me" href="#top">LB<span> / LAUREN BUSBY</span></a>
+  <a class="me" href="#top">LAUREN BUSBY</a>
   <span class="where" id="hud-level">TITLE SCREEN</span>
   <span>ELEV <b id="hud-elev">0000</b> FT</span>
   <span class="score">SCORE <b id="hud-score">000000</b><span class="gain" role="status" aria-live="polite"></span></span>
@@ -444,9 +449,9 @@ h1 .row:last-child{color:var(--gold)}
   <h2 class="pix">Let’s build something worth finding.</h2>
   <div class="choices">
     <a class="btn pix" href="https://trebletree.co/" target="_blank" rel="noopener noreferrer">▶ CONTINUE: WORK WITH ME AT TREBLETREE</a>
-    <a class="btn ghost pix" href="#top">↓ BACK TO BASE</a>
+    <a class="btn ghost pix" href="#top">↑ BACK TO BASE CAMP</a>
   </div>
-  <p class="credits"><span>Lauren Busby © 2026</span><span>New Hampshire, then everywhere</span><span>Elevation borrowed from Mount Washington</span></p>
+  <p class="credits"><span>Lauren Busby © 2026</span><span>Based in New Hampshire</span><span>Elevation borrowed from Mount Washington</span></p>
 </section>
 </main>
 
